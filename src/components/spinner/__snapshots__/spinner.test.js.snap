@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner with css 1`] = `
+<div
+  class="spinner spinner-test spinner--lg spinner--secondary"
+>
+  <svg
+    class="spinner__svg spinner__svg--animation-rotate"
+    shape-rendering="geometricPrecision"
+  >
+    <circle
+      class="spinner__circle spinner__circle--back"
+      cx="50%"
+      cy="50%"
+      r="50%"
+    />
+    <circle
+      class="spinner__circle spinner__circle--front"
+      cx="50%"
+      cy="50%"
+      r="50%"
+    />
+  </svg>
+</div>
+`;

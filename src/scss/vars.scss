@@ -1,0 +1,35 @@
+// main colors
+$primary: #409fff;
+$secondary: #d33a2c;
+$gray: #e8ebed;
+$gray-darker: #babcbf;
+$dark: #17181a;
+$white: #fff;
+$text-color: $dark;
+
+$PI: 3.141592653589793;
+$spinner-sizes: (
+  xs: (
+    size: 80px,
+    stroke: 2px
+  ),
+  sm: (
+    size: 120px,
+    stroke: 5px
+  ),
+  md: (
+    size: 170px,
+    stroke: 10px
+  ),
+  lg: (
+    size: 220px,
+    stroke: 15px
+  )
+);
+
+$percentage-sizes: (
+  xs: 22px,
+  sm: 42px,
+  md: 62px,
+  lg: 82px
+);

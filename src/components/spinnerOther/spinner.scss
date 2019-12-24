@@ -1,0 +1,10 @@
+@use "/scss/vars" as *;
+
+.spinner {
+  &--other & {
+    &__circle--front {
+      stroke-dasharray: var(--spinner-dash-array);
+      stroke-dashoffset: var(--spinner-dash-offset);
+    }
+  }
+}

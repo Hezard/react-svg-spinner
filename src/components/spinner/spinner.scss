@@ -1,0 +1,65 @@
+@use 'sass:map';
+@use "/scss/vars" as *;
+@use "/scss/mixins" as *;
+@use "/scss/animations" as *;
+
+.spinner {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in;
+
+  &--primary & {
+    &__circle--front {
+      stroke: $primary;
+    }
+  }
+
+  &--secondary & {
+    &__circle--front {
+      stroke: $secondary;
+    }
+  }
+
+  &__svg {
+    display: block;
+  }
+
+  &--disabled {
+    opacity: 0.65;
+  }
+
+  &__svg--animation-rotate {
+    animation: rotate 2s linear infinite paused;
+  }
+
+  &:not(&--disabled) & {
+    &__svg {
+      animation-play-state: running;
+    }
+  }
+
+  &__circle {
+    transform-origin: center;
+    fill: transparent;
+
+    &--front {
+      stroke-linecap: round;
+      transition: stroke-dashoffset 200ms linear, stroke 200ms linear;
+    }
+
+    &--back {
+      stroke: $gray;
+    }
+  }
+}
+
+@each $key, $values in $spinner-sizes {
+  .spinner--#{$key} {
+    @include spinner-size(
+      map.get($values, 'size'),
+      map.get($values, 'stroke'),
+      map.get($values, 'text')
+    );
+  }
+}

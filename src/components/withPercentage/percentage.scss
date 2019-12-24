@@ -1,0 +1,36 @@
+@use "/scss/vars" as *;
+
+.percentage {
+  position: relative;
+  display: inline-block;
+  transition: opacity 0.3s ease-in;
+
+  &--disabled {
+    opacity: 0.65;
+  }
+
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  &__sup {
+    position: absolute;
+    top: 0.35em;
+    left: 100%;
+    color: $gray-darker;
+    font-size: 0.35em;
+  }
+}
+
+@each $key, $value in $percentage-sizes {
+  .percentage--#{$key} {
+    .percentage__text {
+      font-size: $value;
+    }
+  }
+}

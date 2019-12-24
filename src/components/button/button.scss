@@ -1,0 +1,70 @@
+@use 'sass:color';
+@use "/scss/vars" as *;
+
+.btn {
+  padding: 0.5rem 1rem;
+  display: flex;
+  border: 1px solid currentColor;
+  border-radius: 30px;
+
+  font-size: 20px;
+  min-height: 60px;
+  min-width: 180px;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.65;
+  }
+
+  &--primary {
+    background: $primary;
+    color: $white;
+
+    &:not(:disabled):not(.btn--outline):hover {
+      background-color: color.scale($primary, $lightness: -10%);
+    }
+  }
+
+  &--secondary {
+    background: $secondary;
+    color: $white;
+
+    &:not(:disabled):not(.btn--outline):hover {
+      background-color: color.scale($secondary, $lightness: -10%);
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border-color: currentColor;
+
+    &.btn--primary {
+      color: $primary;
+
+      &:not(:disabled):hover {
+        color: color.scale($primary, $lightness: -10%);
+      }
+    }
+
+    &.btn--secondary {
+      color: $secondary;
+
+      &:not(:disabled):hover {
+        color: color.scale($secondary, $lightness: -10%);
+      }
+    }
+  }
+}

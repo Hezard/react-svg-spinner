@@ -1,0 +1,34 @@
+@use "vars" as *;
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@mixin spinner-size($size, $stroke, $text) {
+  $path: $PI * strip-unit($size);
+  // linecap fix for Edge and Firefox
+  $linecap-gap: 1;
+
+  --spinner-dash-offset: 0;
+
+  .spinner__svg {
+    width: $size;
+    height: $size;
+  }
+
+  .spinner__circle {
+    transform: scale(1 - strip-unit($stroke / $size));
+    stroke-width: $stroke;
+  }
+
+  .spinner__circle--front {
+    stroke-dasharray: $path ($path + $linecap-gap);
+    stroke-dashoffset: calc(
+      (#{$path + $linecap-gap / 2} * (100 - var(--spinner-dash-offset, 0)) / 100) * 1px
+    );
+  }
+}
