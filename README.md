@@ -5,7 +5,7 @@ Browser support - latest browsers which support stroke-dashoffset, stroke-dashar
 
 - SCSS/CSS Component Spinner supported configuration:
   - className: `string`
-  - color: `primary | secondary'`
+  - color: `primary | secondary`
   - disabled: `boolean`
   - mode: `rotate`
   - size: `xs | sm | md | lg`
