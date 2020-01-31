@@ -2,7 +2,7 @@
 
 exports[`SpinnerJS with javascript 1`] = `
 <div
-  class="spinner spinner-test spinner--other spinner--primary"
+  class="spinner spinner-test spinner--js spinner--primary"
 >
   <svg
     class="spinner__svg spinner__svg--animation-rotate"
