@@ -8,7 +8,7 @@
     "lint": "eslint \"src/**/*.js\"",
     "build": "parcel build --public-url ./ src/index.html",
     "start": "parcel ./src/index.html",
-    "test": "jest --silent",
+    "test": "jest --silent --maxWorkers=4",
     "test:watch": "jest --watch",
     "test:coverage": "jest --silent --coverage",
     "test:update": "jest --silent -u"

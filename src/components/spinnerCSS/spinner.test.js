@@ -1,21 +1,21 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Spinner } from './spinner';
+import { SpinnerCSS } from './spinner';
 
 afterEach(cleanup);
 
-test('Spinner with css', () => {
+test('SpinnerCSS with css', () => {
   const props = {
     color: 'secondary',
     className: 'spinner-test',
     size: 'lg'
   };
-  const { container, rerender } = render(<Spinner {...props}></Spinner>);
+  const { container, rerender } = render(<SpinnerCSS {...props}></SpinnerCSS>);
 
   expect(container.firstChild).toMatchSnapshot();
 
-  rerender(<Spinner {...props} disabled={true}></Spinner>);
+  rerender(<SpinnerCSS {...props} disabled={true}></SpinnerCSS>);
 
   expect(container.firstChild).toHaveClass('spinner--disabled');
 });

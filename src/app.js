@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import { SpinnerWithPercentage } from './components/spinner';
-import { SpinnerOtherWithPercentage } from './components/spinnerOther';
+import { SpinnerCSSWithPercentage } from './components/spinnerCSS';
+import { SpinnerJSWithPercentage } from './components/spinnerJS';
 import { Button } from './components/button';
 
 import './app.scss';
@@ -15,7 +15,10 @@ class App extends Component {
   };
 
   handleSpinnerStart = () => {
-    const { spinnerValue } = this.state;
+    const {
+      state: { spinnerValue },
+      props: { delay }
+    } = this;
 
     this.setState({
       isSpinnerActive: true,
@@ -29,7 +32,7 @@ class App extends Component {
         }));
       }
       this.handleSpinnerStop();
-    }, 300);
+    }, delay);
   };
 
   handleSpinnerStop = () => {
@@ -44,7 +47,7 @@ class App extends Component {
 
   componentWillUnmount() {
     if (this.timer) {
-      clearTimeout(this.timer);
+      clearInterval(this.timer);
     }
   }
 
@@ -60,18 +63,18 @@ class App extends Component {
           <div className="row">
             <div className="col">
               <h4>CSS Spinner</h4>
-              <SpinnerWithPercentage
+              <SpinnerCSSWithPercentage
                 value={spinnerValue}
                 disabled={!isSpinnerActive}
-              ></SpinnerWithPercentage>
+              ></SpinnerCSSWithPercentage>
             </div>
             <div className="col">
               <h4>JS Spinner</h4>
-              <SpinnerOtherWithPercentage
+              <SpinnerJSWithPercentage
                 value={spinnerValue}
                 color="secondary"
                 disabled={!isSpinnerActive}
-              ></SpinnerOtherWithPercentage>
+              ></SpinnerJSWithPercentage>
             </div>
           </div>
         </section>
@@ -103,5 +106,9 @@ class App extends Component {
     );
   }
 }
+
+App.defaultProps = {
+  delay: 300
+};
 
 export default App;

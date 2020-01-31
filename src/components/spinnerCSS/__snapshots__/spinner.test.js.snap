@@ -1,31 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SpinnerOther with javascript 1`] = `
+exports[`SpinnerCSS with css 1`] = `
 <div
-  class="spinner spinner-test spinner--other spinner--primary"
+  class="spinner spinner-test spinner--lg spinner--secondary"
 >
   <svg
     class="spinner__svg spinner__svg--animation-rotate"
-    data-testid="spinner-svg"
-    height="170"
     shape-rendering="geometricPrecision"
-    width="170"
   >
     <circle
       class="spinner__circle spinner__circle--back"
       cx="50%"
       cy="50%"
-      data-testid="spinner-circle-back"
-      r="80"
-      stroke-width="10"
+      r="50%"
     />
     <circle
       class="spinner__circle spinner__circle--front"
       cx="50%"
       cy="50%"
-      data-testid="spinner-circle-front"
-      r="80"
-      stroke-width="10"
+      r="50%"
     />
   </svg>
 </div>

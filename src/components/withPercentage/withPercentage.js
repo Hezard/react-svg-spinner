@@ -13,7 +13,7 @@ const withPercentage = WrappedComponent => {
 
     return (
       <div className={percentageClass}>
-        <WrappedComponent {...{ disabled, value, ...other }}></WrappedComponent>
+        <WrappedComponent {...{ disabled, size, value, ...other }}></WrappedComponent>
         <div className="percentage__text" data-testid="percentage-text">
           {value}
           <sup className="percentage__sup">%</sup>

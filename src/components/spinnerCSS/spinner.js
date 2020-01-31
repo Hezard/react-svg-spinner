@@ -5,7 +5,7 @@ import { withPercentage } from '../withPercentage';
 
 import './spinner.scss';
 
-export const Spinner = ({ children, className, color, disabled, mode, size, value }) => {
+export const SpinnerCSS = ({ children, className, color, disabled, mode, size, value }) => {
   const spinnerClass = classnames('spinner', className, `spinner--${size}`, `spinner--${color}`, {
     'spinner--disabled': disabled
   });
@@ -37,9 +37,15 @@ export const Spinner = ({ children, className, color, disabled, mode, size, valu
   );
 };
 
-Spinner.defaultProps = { color: 'primary', disabled: false, mode: 'rotate', size: 'md', value: 0 };
+SpinnerCSS.defaultProps = {
+  color: 'primary',
+  disabled: false,
+  mode: 'rotate',
+  size: 'md',
+  value: 0
+};
 
-Spinner.propTypes = {
+SpinnerCSS.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['primary', 'secondary']),
   disabled: PropTypes.bool,
@@ -48,4 +54,4 @@ Spinner.propTypes = {
   value: PropTypes.number
 };
 
-export default withPercentage(Spinner);
+export default withPercentage(SpinnerCSS);

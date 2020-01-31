@@ -12,20 +12,21 @@ import '@testing-library/jest-dom/extend-expect';
 
 import App from './app';
 
-jest.setTimeout(35000);
-
 describe('App integration test', () => {
   let getByText, queryByText, getAllByTestId;
   let spinnerText, spinnerOtherText, btnReset, btnStart;
 
   beforeEach(() => {
-    ({ getByText, queryByText, getAllByTestId } = render(<App />));
+    ({ getByText, queryByText, getAllByTestId } = render(<App delay={25} />));
     [spinnerText, spinnerOtherText] = getAllByTestId('percentage-text');
     btnReset = getByText(/Reset/i);
     btnStart = getByText(/Start/i);
   });
 
-  afterEach(cleanup);
+  afterEach(() => {
+    jest.clearAllTimers();
+    cleanup();
+  });
 
   test('test initial render', () => {
     expect(btnStart).toBeInTheDocument();
@@ -65,9 +66,7 @@ describe('App integration test', () => {
   test('user should see finished spinner', async () => {
     fireEvent.click(btnStart);
 
-    await waitForElementToBeRemoved(() => queryByText(/Stop/i), {
-      timeout: 32000
-    });
+    await waitForElementToBeRemoved(() => queryByText(/Stop/i));
 
     expect(getByText(/Start/i)).toBeInTheDocument();
 
@@ -81,14 +80,11 @@ describe('App integration test', () => {
     expect(spinnerText).toHaveTextContent('1%');
     expect(spinnerOtherText).toHaveTextContent('1%');
 
-    await wait(
-      () => {
-        fireEvent.click(btnReset);
+    await wait(() => {
+      fireEvent.click(btnReset);
 
-        expect(spinnerText).toHaveTextContent('0%');
-        expect(spinnerOtherText).toHaveTextContent('0%');
-      },
-      { timeout: 1000 }
-    );
+      expect(spinnerText).toHaveTextContent('0%');
+      expect(spinnerOtherText).toHaveTextContent('0%');
+    });
   });
 });

@@ -5,7 +5,7 @@ import { withPercentage } from '../withPercentage';
 
 import './spinner.scss';
 
-export const SpinnerOther = ({
+export const SpinnerJS = ({
   circumference,
   children,
   className,
@@ -15,7 +15,7 @@ export const SpinnerOther = ({
   stroke,
   value
 }) => {
-  const spinnerClass = classnames('spinner', className, 'spinner--other', `spinner--${color}`, {
+  const spinnerClass = classnames('spinner', className, 'spinner--js', `spinner--${color}`, {
     'spinner--disabled': disabled
   });
   const spinnerSvgClass = classnames('spinner__svg', `spinner__svg--animation-${mode}`);
@@ -60,7 +60,7 @@ export const SpinnerOther = ({
   );
 };
 
-SpinnerOther.defaultProps = {
+SpinnerJS.defaultProps = {
   color: 'primary',
   disabled: false,
   mode: 'rotate',
@@ -68,7 +68,7 @@ SpinnerOther.defaultProps = {
   stroke: 10
 };
 
-SpinnerOther.propTypes = {
+SpinnerJS.propTypes = {
   className: PropTypes.string,
   color: PropTypes.oneOf(['primary', 'secondary']),
   circumference: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -78,4 +78,4 @@ SpinnerOther.propTypes = {
   value: PropTypes.number
 };
 
-export default withPercentage(SpinnerOther);
+export default withPercentage(SpinnerJS);
