@@ -17,7 +17,7 @@ describe('App integration test', () => {
   let spinnerText, spinnerOtherText, btnReset, btnStart;
 
   beforeEach(() => {
-    ({ getByText, queryByText, getAllByTestId } = render(<App delay={25} />));
+    ({ getByText, queryByText, getAllByTestId } = render(<App delay={40} />));
     [spinnerText, spinnerOtherText] = getAllByTestId('percentage-text');
     btnReset = getByText(/Reset/i);
     btnStart = getByText(/Start/i);
