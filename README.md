@@ -3,6 +3,9 @@ This project contains two variants of spinner SCSS/CSS and JS
 Powered with ReactJS, SASS, Parcel, Jest, React testing library.
 Browser support - latest browsers which support stroke-dashoffset, stroke-dasharray and css variables.
 
+[Check Demo](https://hezard.github.io/react-svg-spinner)
+
+
 - SCSS/CSS Component Spinner supported configuration:
   - className: `string`
   - color: `primary | secondary`
