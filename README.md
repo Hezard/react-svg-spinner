@@ -1,4 +1,4 @@
-# Spinner test assessment
+# Spinner component
 This project contains two variants of spinner SCSS/CSS and JS
 Powered with ReactJS, SASS, Parcel, Jest, React testing library.
 Browser support - latest browsers which support stroke-dashoffset, stroke-dasharray and css variables.
